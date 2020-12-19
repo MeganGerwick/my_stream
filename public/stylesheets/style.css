@@ -10,23 +10,35 @@ form.login {
 
 
 body {
-height: 725px;
-background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(50,48,49,1) 85%);
+height: 693px;
+font-family: 'Montserrat', sans-serif;
+background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 81%);
 }
 
 .container {
-  background-color: #fffffa;
+  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 98%);
+  color: #fffffa;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(9, 8, 24, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 
 nav {
-  background-color: #020024;
+  background-color: #030216;
   color: #fffffa;
 }
 
 .brand-logo {
   font-family: 'Bebas Neue', cursive;
+  letter-spacing: 5px;
 }
 
 h2 {
-  color: #323031;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 5px;
+  color: #fffffa;
+}
+
+.btn {
+  background-color: #0d051b;
 }
