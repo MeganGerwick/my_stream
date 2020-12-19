@@ -1,5 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+// const connection = require('./connection');
 
 const db = require('../models');
 
