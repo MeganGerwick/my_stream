@@ -28,17 +28,27 @@
 
   <body>
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">two</a></li>
+      <li><a href="#!">Watched</a></li>
+      <li><a href="#!">My Watch List</a></li>
       <li class="divider"></li>
-      <li><a href="#!">Log Out</a></li>
+      <li><a href="./login.html" class="logout">Log Out</a></li>
     </ul>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="./members.html">Trending</a></li>
+      <li><a href="">Add to Lists</a></li>
+      <li><a href="">Watched</a></li>
+      <li><a href="">My Watch List</a></li>
+      <li><a href="./login.html" class="logout">Log Out</a></li>
+    </ul>
+
     <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo">My Stream</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="">Watched</a></li>
-          <li><a href="">Add to Watch List</a></li>
+          <li><a href="./members.html">Trending</a></li>
+          <li><a href="">Add to Lists</a></li>
           <!-- Dropdown Trigger -->
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1"
@@ -50,9 +60,8 @@
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 offset-m3">
+        <div class="col m8 offset-m2 s12">
           <h2>What's Trending</h2>
-
           <div class="carousel">
             <a class="carousel-item" href="#one!"><img src="https://via.placeholder.com/150"></a>
             <a class="carousel-item" href="#two!"><img src="https://via.placeholder.com/150"></a>
@@ -60,6 +69,21 @@
             <a class="carousel-item" href="#four!"><img src="https://via.placeholder.com/150"></a>
             <a class="carousel-item" href="#five!"><img src="https://via.placeholder.com/150"></a>
           </div>
+          <h2>Search Movies</h2>
+          <div class="input-field col m8 offset-m2 s12">
+            <input id="search" type="text" class="search-form">
+            <label for="search" class="search-form">Search</label>
+            <button class="btn" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col m8 offset-m2 s12">
+          <h2>Search Results Here (run clear on submit button then show
+            dynamically?)</h2>
         </div>
       </div>
     </div>

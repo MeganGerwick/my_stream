@@ -3,11 +3,9 @@ form.login {
   margin-top: 50px;
 }
 
-
 .parallax-container {
   height: 300px;
 }
-
 
 body {
 height: 693px;
@@ -31,6 +29,7 @@ nav {
 .brand-logo {
   font-family: 'Bebas Neue', cursive;
   letter-spacing: 5px;
+  margin-left: 15px;
 }
 
 h2 {
@@ -41,4 +40,17 @@ h2 {
 
 .btn {
   background-color: #0d051b;
+}
+
+.search-form {
+  color: #fffffa;
+}
+
+.input-field label {
+  color: #fffffa;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 2px solid #fffffa;
+  box-shadow: 0 1px 0 0 #fffffa;
 }
