@@ -13,7 +13,15 @@ function searchForMovie() {
     url: queryURL,
     method: "GET",
   }).then(function(response) {
-    console.log(response);
+    // console.log(response);
+    let title = response.results[0].title;
+    let movieID = response.results[0].id;
+    let posterURL = response.results[0].poster_path;
+    let rating = response.results[0].vote_average;
+    let releaseDate = response.results[0].release_date;
+    let summary = response.results[0].overview;
+    let genreID = response.results[0].genre_ids[0];
+    // Poster Path: "https://image.tmdb.org/t/p/w500" + POSTER_URL;
   });
 }
 
@@ -73,6 +81,7 @@ function getMovieGenres() {
     console.log(movieGenres);
   });
 }
+
 //Get the official list of genres for all tv shows https://api.themoviedb.org/3/genre/tv/list?api_key=e84c7c8e45cf9ee6ec79d9c662ff6222&language=en-US
 function getTVGenres() {
   let queryURL =
