@@ -2,3 +2,43 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+
+.parallax-container {
+  height: 300px;
+}
+
+
+body {
+height: 693px;
+font-family: 'Montserrat', sans-serif;
+background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 81%);
+}
+
+.container {
+  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 98%);
+  color: #fffffa;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(9, 8, 24, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+nav {
+  background-color: #030216;
+  color: #fffffa;
+}
+
+.brand-logo {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 5px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 5px;
+  color: #fffffa;
+}
+
+.btn {
+  background-color: #0d051b;
+}
