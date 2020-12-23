@@ -9,5 +9,5 @@ $(document).ready(() => {
 
   $(".dropdown-trigger").dropdown();
   $('.carousel').carousel();
-
+  $('.sidenav').sidenav();
 });
