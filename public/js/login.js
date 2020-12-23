@@ -8,6 +8,8 @@ $(document).ready(() => {
 
 
 $(".dropdown-trigger").dropdown();
+$('.sidenav').sidenav();
+
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on('submit', event => {
     event.preventDefault();
