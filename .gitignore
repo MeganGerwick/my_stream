@@ -25,10 +25,6 @@ bower_components
 build/Release
 # Dependency directories
 node_modules/**/*
-<<<<<<< HEAD
-node_modules/
-=======
->>>>>>> 46a3bd58feed44bc70ddf9090310f5510583c6e3
 jspm_packages/
 # TypeScript v1 declaration files
 typings/
@@ -58,9 +54,5 @@ styles/css
 .DS_Store
 #IDE and Text Editors
 .vscode
-<<<<<<< HEAD
-.idea
-=======
 .idea
 
->>>>>>> 46a3bd58feed44bc70ddf9090310f5510583c6e3
