@@ -15,13 +15,27 @@ function searchForMovie() {
     method: "GET",
   }).then(function(response) {
     // console.log(response);
-    let title = response.results[0].title;
+    // let title = response.results[0].title;
+    // let posterURL = response.results[0].poster_path;
+    // let rating = response.results[0].vote_average;
+    // let releaseDate = response.results[0].release_date;
+    // let summary = response.results[0].overview;
+    // let genreID = response.results[0].genre_ids[0];
     let movieID = response.results[0].id;
-    let posterURL = response.results[0].poster_path;
-    let rating = response.results[0].vote_average;
-    let releaseDate = response.results[0].release_date;
-    let summary = response.results[0].overview;
-    let genreID = response.results[0].genre_ids[0];
+    let streaming = whereToWatch(movieID);
+    let movie = {
+      title: response.results[0].title,
+      year: response.results[0].release_date,
+      // rated: ????,
+      genre: response.results[0].genre_ids[0],
+      plot: response.results[0].overview,
+      poster: "https://image.tmdb.org/t/p/w500" + response.results[0].poster_path,
+      rating: response.results[0].vote_average,
+      streaming: streaming,
+      // user: ????,
+      // watched: ????
+    }
+
     connection.query("")
     // Poster Path: "https://image.tmdb.org/t/p/w500" + POSTER_URL;
   });
@@ -54,7 +68,6 @@ function searchForTVShow() {
     API_KEY +
     "&language=en-US&query=" +
     userTVShow;
-
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -123,6 +136,7 @@ function searchSimilarMovies(movieID) {
       similarMovies.push(response.results[i].title);
     }
     console.log(similarMovies);
+    return similarMovies;
   });
 }
 

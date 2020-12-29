@@ -13,49 +13,65 @@ var db = require("../../models");
 module.exports = function(app) {
 
   // GET route for getting all of the todos
-  app.get("/api/towatch", function(req, res) {
+  app.get("/api/watchlist", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.ToWatch.findAll({}).then(function(dbTodo) {
+    db.Watchlist.findAll({}).then(function(dbWatchlist) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTodo);
     });
   });
 
   // POST route for saving a new todo
-  app.post("/api/towatch", function(req, res) {
+  app.post("/api/watchlist", function(req, res) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.Todo.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbTodo) {
+    db.Watchlist.create({
+      title: req.body.title,
+      year: req.body.year,
+      rated: req.body.year,
+      genre: req.body.genre,
+      plot: req.body.plot,
+      poster: req.body.poster,
+      rating: req.body.rating,
+      streaming: req.body.streaming,
+      user: req.body.user,
+      watched: req.body.watched
+    }).then(function(dbWatchlist) {
       // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+      res.json(dbWatchlist);
     });
   });
 
   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
   // req.params.id
-  app.delete("/api/towatch/:id", function(req, res) {
+  app.delete("/api/watchlist/:id", function(req, res) {
     // Use the sequelize destroy method to delete a record from our table with the
     // id in req.params.id. res.json the result back to the user
-    db.Todo.destroy({
+    db.Watchlist.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
+    }).then(function(dbWatchlist) {
+      res.json(dbWatchlist);
     });
   });
 
   // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/towatch", function(req, res) {
+  app.put("/api/watchlist", function(req, res) {
     // Use the sequelize update method to update a todo to be equal to the value of req.body
     // req.body will contain the id of the todo we need to update
-    db.Todo.update({
-      text: req.body.text,
-      complete: req.body.complete
+    db.Watchlist.update({
+      title: req.body.title,
+      year: req.body.year,
+      rated: req.body.year,
+      genre: req.body.genre,
+      plot: req.body.plot,
+      poster: req.body.poster,
+      rating: req.body.rating,
+      streaming: req.body.streaming,
+      user: req.body.user,
+      watched: req.body.watched
     },
     {
       where: {
