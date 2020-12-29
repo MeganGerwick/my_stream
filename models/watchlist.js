@@ -1,7 +1,6 @@
-// Creating our Watched model
+//create To Watch list 
 module.exports = function (sequelize, DataTypes) {
-    //create Watched list 
-    const Watched = sequelize.define('Watched', {
+    const ToWatch = sequelize.define('ToWatch', {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -37,8 +36,12 @@ module.exports = function (sequelize, DataTypes) {
         user: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        watched: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
     });
-    return Watched;
-
+    return ToWatch;
 };
