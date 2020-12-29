@@ -1,6 +1,6 @@
 //create To Watch list 
 module.exports = function (sequelize, DataTypes) {
-    const ToWatch = sequelize.define('ToWatch', {
+    const Watchlist = sequelize.define('Watchlist', {
         title: {
             type: DataTypes.STRING,
             allowNull: false,
