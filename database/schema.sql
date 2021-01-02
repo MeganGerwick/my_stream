@@ -7,7 +7,7 @@ CREATE DATABASE my_stream;
 
 USE my_stream;
 
-CREATE TABLE watched (
+CREATE TABLE watchlist (
 	title VARCHAR(140) NOT NULL PRIMARY KEY,
     year INTEGER,
     rated VARCHAR(10),
@@ -16,18 +16,6 @@ CREATE TABLE watched (
     poster VARCHAR(300),
     rating VARCHAR(400),
     type VARCHAR(30), 
-    user VARCHAR (150)
-);
-
-CREATE TABLE to_watch (
-	title VARCHAR(140) NOT NULL PRIMARY KEY,
-    year INTEGER,
-    rated VARCHAR(10),
-	genre VARCHAR(140),
-    plot VARCHAR(1000),
-    poster VARCHAR(300),
-    rating VARCHAR(400),
-    type VARCHAR(30),
     user VARCHAR (150)
 );
 
