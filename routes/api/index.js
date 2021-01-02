@@ -21,7 +21,10 @@ router.post('/signup', (req, res) => {
   console.log(req.body);
   db.User.create(req.body)
     .then(() => {
-      res.redirect(307, '/api/login');
+      passport.authenticate('local')(req, res, function () {
+        res.redirect('/');
+      })
+      // res.status(200).end();
     })
     .catch(err => {
       res.status(401).json(err);
