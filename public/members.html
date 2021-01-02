@@ -28,7 +28,6 @@
 
   <body>
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">Watched</a></li>
       <li><a href="#!">My Watch List</a></li>
       <li class="divider"></li>
       <li><a href="./login.html" class="logout">Log Out</a></li>
@@ -36,9 +35,8 @@
 
     <ul class="sidenav" id="mobile-demo">
       <li><a href="./members.html">Trending</a></li>
-      <li><a href="">Add to Lists</a></li>
-      <li><a href="">Watched</a></li>
-      <li><a href="">My Watch List</a></li>
+      <li><a href="./search.html">Add to Lists</a></li>
+      <li><a href="/index">My Watch List</a></li>
       <li><a href="./login.html" class="logout">Log Out</a></li>
     </ul>
 
@@ -48,7 +46,8 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="./members.html">Trending</a></li>
-          <li><a href="">Add to Lists</a></li>
+          <li><a href="./search.html">Add to Lists</a></li>
+          <li><a href="/index">My Watch List</a></li>
           <!-- Dropdown Trigger -->
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1"
@@ -69,23 +68,10 @@
             <a class="carousel-item" href="#four!"><img src="https://via.placeholder.com/150"></a>
             <a class="carousel-item" href="#five!"><img src="https://via.placeholder.com/150"></a>
           </div>
-          <h2>Search Movies</h2>
-          <div class="input-field col m8 offset-m2 s12">
-            <input id="search" type="text" class="search-form">
-            <label for="search" class="search-form">Search</label>
-            <button class="btn" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col m8 offset-m2 s12">
-          <h2>Search Results Here (run clear on submit button then show
-            dynamically?)</h2>
-        </div>
-      </div>
+   
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
