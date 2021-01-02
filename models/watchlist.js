@@ -43,5 +43,5 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: false
         }
     });
-    return ToWatch;
+    return Watchlist;
 };
