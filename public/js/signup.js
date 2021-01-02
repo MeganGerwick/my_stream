@@ -83,3 +83,5 @@ $(document).ready(() => {
     $('#alert').fadeIn(500);
   }
 });
+
+//Random code so that I can merge
