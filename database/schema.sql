@@ -16,7 +16,8 @@ CREATE TABLE watchlist (
     poster VARCHAR(300),
     rating VARCHAR(400),
     type VARCHAR(30), 
-    user VARCHAR (150)
+    user VARCHAR (150),
+    watched BOOLEAN
 );
 
 CREATE TABLE users (
