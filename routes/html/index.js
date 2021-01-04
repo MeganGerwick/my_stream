@@ -34,4 +34,8 @@ router.get('/members', isAuthenticated, (_req, res) => {
   res.sendFile(path.join(__dirname, '../../public/members.html'));
 });
 
+router.get('/search', isAuthenticated, (_req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/search.html'));
+})
+
 module.exports = router;

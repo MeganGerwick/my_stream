@@ -49,7 +49,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="./members.html">Trending</a></li>
           <li><a href="./search.html">Add to Lists</a></li>
-          <li><a href="/index">My Watch List</a></li>
+          <li><a href="/index" class="member-name">My Watch List</a></li>
           <!-- Dropdown Trigger -->
           <li>
             <a class="dropdown-trigger" href="#!" data-target="dropdown1"
@@ -64,18 +64,18 @@
         <div class="col m8 offset-m2 s12">
           <h2>Search Streams</h2>
           <label>
-            <input type="checkbox" class="filled-in" />
+            <input type="checkbox" class="filled-in moviesChkBox" name="movies" />
             <span>Movies</span>
           </label>
           <label>
-            <input type="checkbox" class="filled-in" />
+            <input type="checkbox" class="filled-in tvChkBox" name="tv" />
             <span>TV</span>
           </label>
           <div class="input-field col m8 offset-m2 s12">
             <input id="search" type="text" class="style-form" />
             <label for="search" class="style-form">Search</label>
 
-            <button class="btn" type="submit" name="action">
+            <button class="btn submitButton" type="submit" name="action">
               Submit
               <i class="material-icons right">send</i>
             </button>
