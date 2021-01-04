@@ -9,16 +9,12 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        rated: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         genre: {
             type: DataTypes.STRING,
             allowNull: false
         },
         plot: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false
         },
         poster: {
@@ -29,9 +25,21 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        streaming: {
+        rent: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        flatrate: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        buy: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        movieID: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         user: {
             type: DataTypes.STRING,

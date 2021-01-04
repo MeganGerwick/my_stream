@@ -23,6 +23,7 @@ function searchForMovie() {
     // let genreID = response.results[0].genre_ids[0];
     let movieID = response.results[0].id;
     let streaming = whereToWatch(movieID);
+    // object.entries
     let movie = {
       title: response.results[0].title,
       year: response.results[0].release_date,
@@ -35,8 +36,7 @@ function searchForMovie() {
       // user: ????,
       // watched: ????
     }
-
-    connection.query("")
+    
     // Poster Path: "https://image.tmdb.org/t/p/w500" + POSTER_URL;
   });
 }
