@@ -13,11 +13,11 @@ var movieAPI = require("./helper/movie.js");
 
 // Routes
 // =============================================================
-// GET route for getting all of the todos
+// GET route for getting all of the movies
 router.route("/api/watchlist").get(function(req, res) {
   // findAll returns all entries for a table when used with no options
   db.Watchlist.findAll({}).then(function(dbWatchlist) {
-    // We have access to the todos as an argument inside of the callback function
+    // We have access to the movies as an argument inside of the callback function
     res.json(dbWatchlist);
   });
 });
@@ -30,13 +30,14 @@ router.route("/api/watchlist/:user").get(function(req, res) {
         user: userEmail
       }
     }).then(function(dbWatchlist) {
-      for (let i = 0; i < dbWatchlist.length; i++) {
-        // this is going to cycle through all the dataValues and
-        // give us the objects that they hold there depending on
-        // which user is input, we can then use that information
-        // to build the cards
-        console.log(dbWatchlist[i].dataValues);
-      }
+      // for (let i = 0; i < dbWatchlist.length; i++) {
+      //   // this is going to cycle through all the dataValues and
+      //   // give us the objects that they hold there depending on
+      //   // which user is input, we can then use that information
+      //   // to build the cards
+      //   console.log(dbWatchlist[i].dataValues);
+      // }
+    res.json(dbWatchlist);
   })
 });
 
@@ -160,7 +161,7 @@ router.route("/api/watchlist/:title/:user").post(async function(req, res) {
   });
 });
 
-// DELETE route for deleting todos. We can get the id of the todo to be deleted from
+// DELETE route for changing status. We can get the id of the todo to be deleted from
 // req.params.id
 router.route("/api/watchlist/:id").delete(function(req, res) {
   // Use the sequelize destroy method to delete a record from our table with the
@@ -196,8 +197,8 @@ router.route("/api/watchlist").put(function(req, res) {
         id: req.body.id,
       },
     }
-  ).then(function(dbTodo) {
-    res.json(dbTodo);
+  ).then(function(dbWatchlist) {
+    res.json(dbWatchlist);
   });
 });
 
