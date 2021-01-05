@@ -230,6 +230,17 @@ router.route("/api/search/:title/:user").post(async function (req, res) {
     });
   });
 });
+router.route("/api/search/:title").delete(function (req, res) {
+  // Use the sequelize destroy method to delete a record from our table with the
+  // id in req.params.id. res.json the result back to the user
+  db.Searchtable.destroy({
+    where: {
+      title: req.params.title,
+    },
+  }).then(function (Searchtable) {
+    res.json(Searchtable);
+  });
+});
 // DELETE route for changing status. We can get the id of the todo to be deleted from
 // req.params.id
 router.route("/api/watchlist/:id").delete(function (req, res) {
