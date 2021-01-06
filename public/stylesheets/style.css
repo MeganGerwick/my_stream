@@ -22,8 +22,13 @@ background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 81%);
   text-align: center;
 }
 
+.section {
+  background: rgb(11, 10, 19);
+}
+
 nav {
   background-color: #030216;
+  box-shadow: 0 4px 8px 0 rgba(9, 8, 24, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fffffa;
 }
 
