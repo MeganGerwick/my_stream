@@ -14,7 +14,7 @@ $(document).ready(() => {
   $(".carousel").carousel();
   $(".sidenav").sidenav();
 
-  $(".submitButton").click(function (event) {
+  $(".submitButton").click(function(event) {
     event.preventDefault();
     searchRes.empty();
     title = $("#search").val();
@@ -23,46 +23,51 @@ $(document).ready(() => {
     createNewPost(title, userEmail);
   });
   function createNewPost(title, user) {
-    $.post("/api/api/search/" + title + "/" + user, function () {
+    $.post("/api/api/search/" + title + "/" + user, function() {
       getAllPosts(user);
     });
   }
   function getAllPosts(user) {
-    $.get("/api/api/search/" + user, function (results) {
+    $.get("/api/api/search/" + user, function(results) {
       createCard(results);
     });
   }
 
-  $('.results').on('click', 'button', function (event) {
+  $(".results").on("click", "button", function(event) {
     var target = event.target;
     console.log(target);
-    if (target.matches('button')) {
-      var idInfo = target.getAttribute('id');
+    if (target.matches("button")) {
+      var idInfo = target.getAttribute("id");
       console.log(idInfo);
       if (idInfo === "notwatched") {
         var watched = false;
-        $.post("/api/api/watchlist/" + title + "/" + userEmail + "/" + watched, function () {
-          console.log("watchedsuccess")
-        });
+        $.post(
+          "/api/api/watchlist/" + title + "/" + userEmail + "/" + watched,
+          function() {
+            console.log("watchedsuccess");
+          }
+        );
       }
       if (idInfo === "havewatched") {
         var watched = true;
-        $.post("/api/api/watchlist/" + title + "/" + userEmail + "/" + watched, function () {
-          console.log("watchedsuccess")
-        });
-    }
-    
+        $.post(
+          "/api/api/watchlist/" + title + "/" + userEmail + "/" + watched,
+          function() {
+            console.log("watchedsuccess");
+          }
+        );
+      }
     }
     console.log(title);
     console.log(userEmail);
-  })
+  });
   function createCard(results) {
     let card = $("<div>").addClass("card");
     let poster = $("<div>").addClass(
       "poster card-image waves-effect waves-block waves-light"
     );
     console.log(results);
-    let arrayLength = (results.length - 1);
+    let arrayLength = results.length - 1;
     console.log(arrayLength);
     let image = $("<img>")
       .addClass("activator")

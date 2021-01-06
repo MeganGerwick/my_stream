@@ -1,5 +1,5 @@
 let API_KEY = "e84c7c8e45cf9ee6ec79d9c662ff6222";
-const connection = require('../config/connection.js');
+const connection = require("../config/connection.js");
 
 //Search for a specific movie https://api.themoviedb.org/3/search/movie?api_key=e84c7c8e45cf9ee6ec79d9c662ff6222&language=en-US&query=Harry%20Potter%20and%20the%20Sorcerer%27sStone
 function searchForMovie() {
@@ -30,13 +30,14 @@ function searchForMovie() {
       // rated: ????,
       genre: response.results[0].genre_ids[0],
       plot: response.results[0].overview,
-      poster: "https://image.tmdb.org/t/p/w500" + response.results[0].poster_path,
+      poster:
+        "https://image.tmdb.org/t/p/w500" + response.results[0].poster_path,
       rating: response.results[0].vote_average,
       streaming: streaming,
       // user: ????,
       // watched: ????
-    }
-    
+    };
+
     // Poster Path: "https://image.tmdb.org/t/p/w500" + POSTER_URL;
   });
 }

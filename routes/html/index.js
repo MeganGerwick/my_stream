@@ -45,42 +45,24 @@ router.get("/watchlist", isAuthenticated, (req, res) => {
 
   db.Watchlist.findAll({
     where: {
-      user: email
+      user: email,
     },
-
   }).then(function(userWatchList) {
-      console.log(userWatchList);
-      const watchlist = userWatchList.map(movie => {
-        return movie.dataValues;
-      });
-      console.log(watchlist);
-      res.render("index", {movie: watchlist});
+    console.log(userWatchList);
+    const watchlist = userWatchList.map((movie) => {
+      return movie.dataValues;
+    });
+    console.log(watchlist);
+    res.render("index", { movie: watchlist });
   });
- 
 });
 
-
-// router.put("/watchlist/id", (req, res) => {
-// const movieId = req.params.id;
-// const value = {watched: true};
-// const selector = {where: {id: movieId}};
-// console.log(movieId);
-
-//   db.Watchlist.update(
-//    value, selector
-//   ).then(function() { 
-//     res.status(200).end();
-//   })
-// });
-
 router.put("/watchlist/:id", isAuthenticated, (req, res) => {
-  
-  db.Watchlist.update({ watched: true }, { where: {id: req.params.id} })
+  db.Watchlist.update({ watched: true }, { where: { id: req.params.id } })
     .then(function(rowsUpdated) {
       res.json(rowsUpdated);
     })
     .catch();
 });
-
 
 module.exports = router;
