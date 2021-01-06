@@ -35,7 +35,7 @@ $('.sidenav').sidenav();
       password: password
     })
       .then(() => {
-        window.location.replace('/members');
+        window.location.replace('/welcome');
         // If there's an error, log the error
       })
       .catch(err => {

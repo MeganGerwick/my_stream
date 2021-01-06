@@ -57,7 +57,7 @@ $(document).ready(() => {
     console.log(userEmail);
   })
   function createCard(results) {
-    let card = $("<div>").addClass("card sticky-action");
+    let card = $("<div>").addClass("card");
     let poster = $("<div>").addClass(
       "poster card-image waves-effect waves-block waves-light"
     );
@@ -92,7 +92,7 @@ $(document).ready(() => {
     let button2 = $("<button>")
       .attr("href", "notwatched")
       .attr("id", "notwatched")
-      .addClass("btn")
+      .addClass("btn flow-text")
       .text("Add to List!")
       .appendTo(linksPara);
 

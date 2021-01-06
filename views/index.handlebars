@@ -5,7 +5,7 @@
 </ul>
 
 <ul class="sidenav" id="mobile-demo">
-  <li><a href="/members.html">Trending</a></li>
+  {{!-- <li><a href="/members.html">Trending</a></li> --}}
   <li><a href="/search.html">Add to Lists</a></li>
   <li><a href="/watchlist">My Watch List</a></li>
   <li><a href="/login.html" class="logout">Log Out</a></li>
@@ -17,30 +17,42 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i
         class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="/members.html">Trending</a></li>
+      {{!-- <li><a href="/members.html">Trending</a></li> --}}
       <li><a href="/search.html">Add to Lists</a></li>
       <!-- Dropdown Trigger -->
       <li>
-        <a class="dropdown-trigger member-name" href="#!" data-target="dropdown1"
-              >My Account<i class="material-icons right">arrow_drop_down</i></a
-            >
+        <a class="dropdown-trigger member-name" href="#!"
+          data-target="dropdown1">My Account<i
+            class="material-icons right">arrow_drop_down</i></a>
       </li>
     </ul>
   </div>
 </nav>
-<div class="section">
+<div class="container">
   <div class="row center">
     <p>
     <h2>Watch List</h2>
-    <ul>
-      {{#each title}}
-      {{#unless watched}}
-      <li>{{title}}
-        {{>watchlist/watch-change watched=false}}
-      </li>
-      {{/unless}}
-      {{/each}}
-    </ul>
+
+    <table class="highlight responsive-table centered">
+      <thead>
+        <tr>
+          <th>Movie Title</th>
+          <th>Rental</th>
+          <th>Have you Watched It?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each movie}}
+        {{#unless watched}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{rent}}</td>
+          <td> {{>watch-change watched=false}}</td>
+          {{/unless}}
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
     </p>
 
   </div>
@@ -57,7 +69,7 @@
     <h2>Already Watched</h2>
     <ul>
 
-      {{#each title}}
+      {{#each movie}}
       {{#if watched}}
       <li> {{title}} </li>
       {{/if}}

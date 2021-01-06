@@ -58,7 +58,7 @@ router.route("/api/watchlist/:title/:user/:watched").post(async function (req, r
     let movieID = results.results[0].id;
     console.log("line 86", movieID);
     movie = {
-      title: req.params.title,
+      title: results.results[0].title,
       year: movieYear,
       genre: results.results[0].genre_ids[0],
       plot: results.results[0].overview,
@@ -129,7 +129,7 @@ router.route("/api/search/:title/:user").post(async function (req, res) {
     let movieID = results.results[0].id;
     console.log("line 86", movieID);
     movie = {
-      title: req.params.title,
+      title: results.results[0].title,
       year: movieYear,
       genre: results.results[0].genre_ids[0],
       plot: results.results[0].overview,

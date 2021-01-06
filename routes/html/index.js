@@ -3,11 +3,12 @@ const path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../../config/middleware/isAuthenticated");
 const router = require("express").Router();
+const db = require("../../models");
 
 router.get("/", (req, res) => {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/members");
+    res.redirect("/welcome");
   }
 
   res.sendFile(path.join(__dirname, "../../public/signup.html"));
@@ -16,7 +17,7 @@ router.get("/", (req, res) => {
 router.get("/login", (req, res) => {
   // If the user already has an account send them to the members page
   if (req.user) {
-    res.redirect("/members");
+    res.redirect("/welcome");
   }
 
   res.sendFile(path.join(__dirname, "../../public/login.html"));
@@ -30,8 +31,8 @@ router.get("/logout", (req, res) => {
 
 // Here we've add our isAuthenticated middleware to this route.
 // If a user who is not logged in tries to access this route they will be redirected to the signup page
-router.get("/members", isAuthenticated, (_req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/members.html"));
+router.get("/welcome", isAuthenticated, (_req, res) => {
+  res.sendFile(path.join(__dirname, "../../public/search.html"));
 });
 
 router.get("/search", isAuthenticated, (_req, res) => {
@@ -39,17 +40,47 @@ router.get("/search", isAuthenticated, (_req, res) => {
 });
 
 router.get("/watchlist", isAuthenticated, (req, res) => {
-  watchlist.all(function(data) {
-    const list = {
-      watchlist: data,
-    };
-    console.log(list);
-    res.render("index", list);
-  });
+  const email = req.user.email;
+  console.log(req.user.email);
 
-  // 1. what user called and their id
-  // 2. call database
-  // 3. pass into 2nd arg of res.render
+  db.Watchlist.findAll({
+    where: {
+      user: email
+    },
+
+  }).then(function(userWatchList) {
+      console.log(userWatchList);
+      const watchlist = userWatchList.map(movie => {
+        return movie.dataValues;
+      });
+      console.log(watchlist);
+      res.render("index", {movie: watchlist});
+  });
+ 
 });
+
+
+// router.put("/watchlist/id", (req, res) => {
+// const movieId = req.params.id;
+// const value = {watched: true};
+// const selector = {where: {id: movieId}};
+// console.log(movieId);
+
+//   db.Watchlist.update(
+//    value, selector
+//   ).then(function() { 
+//     res.status(200).end();
+//   })
+// });
+
+router.put("/watchlist/:id", isAuthenticated, (req, res) => {
+  
+  db.Watchlist.update({ watched: true }, { where: {id: req.params.id} })
+    .then(function(rowsUpdated) {
+      res.json(rowsUpdated);
+    })
+    .catch();
+});
+
 
 module.exports = router;
