@@ -36,7 +36,7 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="./members.html">Trending</a></li>
       <li><a href="./search.html">Add to Lists</a></li>
-      <li><a href="/index">My Watch List</a></li>
+      <li><a href="/api/watchlist/:user">My Watch List</a></li>
       <li><a href="./login.html" class="logout">Log Out</a></li>
     </ul>
 
@@ -49,7 +49,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="./members.html">Trending</a></li>
           <li><a href="./search.html">Add to Lists</a></li>
-          <li><a href="/index" >My Watch List</a></li>
+          <li><a href="/api/watchlist/:user" >My Watch List</a></li>
           <!-- Dropdown Trigger -->
           <li>
             <a class="dropdown-trigger member-name" href="#!" data-target="dropdown1"
@@ -77,10 +77,11 @@
       </div>
 
       <div class="row">
-        <div class="col m8 offset-m2 s12 results">
+        <div class="col m8 offset-m2 s12">
           <h2>
             Results
           </h2>
+          <div class="results"></div>
         </div>
       </div>
     </div>
