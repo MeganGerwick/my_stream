@@ -30,89 +30,26 @@ router.route("/api/watchlist/:user").get(function (req, res) {
         user: userEmail
       }
     }).then(function (dbWatchlist) {
-      // for (let i = 0; i < dbWatchlist.length; i++) {
-      //   // this is going to cycle through all the dataValues and
-      //   // give us the objects that they hold there depending on
-      //   // which user is input, we can then use that information
-      //   // to build the cards
-      //   console.log(dbWatchlist[i].dataValues);
-      // }
       res.json(dbWatchlist);
     })
 });
 router.route("/api/search/:user").get(function (req, res) {
   let userEmail = req.params.user;
-  db.Watchlist.findAll(
+  db.Searchtable.findAll(
     {
       where: {
         user: userEmail
       }
     }).then(function (dbWatchlist) {
-      // for (let i = 0; i < dbWatchlist.length; i++) {
-      //   // this is going to cycle through all the dataValues and
-      //   // give us the objects that they hold there depending on
-      //   // which user is input, we can then use that information
-      //   // to build the cards
-      //   console.log(dbWatchlist[i].dataValues);
-      // }
       res.json(dbWatchlist);
     })
 });
-
-// ***** THIS WHOLE POST ROUTE MIGHT BE WORTHLESS NOW
-// ***** WILL DELETE LATER IF NOT NEEDED
-// // POST route for saving a new watchlist
-// router.route("/api/watchlist").post(async function(req, res) {
-//   // create takes an argument of an object describing the item we want to
-//   // insert into our table. In this case we just we pass in an object with a text
-//   // and complete property
-//   movieAPI.searchForMovie().then((results) => {
-//     let movie = {};
-//     let movieDate = results.results[0].release_date;
-//     let movieYear = parseInt(movieDate.slice(0, 4));
-//     let movieID = results.results[0].id;
-//     movie = {
-//       title: results.results[0].original_title,
-//       year: movieYear,
-//       rated: "R",
-//       genre: results.results[0].genre_ids[0],
-//       plot: results.results[0].overview,
-//       poster:
-//         "https://image.tmdb.org/t/p/w500" + results.results[0].poster_path,
-//       rating: results.results[0].vote_average,
-//       user: "Christian",
-//       watched: true,
-//       // streaming: streamingInfo,
-//     };
-//     db.Watchlist.create(movie).then(function(dbWatchlist) {
-//       // We have access to the new todo as an argument inside of the callback function
-//       res.json(dbWatchlist);
-//       // db.Watchlist.update({
-//       //   title: results.results[0].original_title,
-//       //   // year: results.results[0].release_date,
-//       //   year: movieYear,
-//       //   rated: "R",
-//       //   genre: results.results[0].genre_ids[0],
-//       //   plot: results.results[0].overview,
-//       //   poster:
-//       //     "https://image.tmdb.org/t/p/w500" + results.results[0].poster_path,
-//       //   rating: results.results[0].vote_average,
-//       //   user: "Christian",
-//       //   watched: true,
-//       // },
-//       // {
-//       //   where: {
-//       //     id: NEEDSTUFFHERE
-//       //   }
-//       // });
-//     });
-//   });
-// });
 
 // Creates a new post to our watchlist table
 router.route("/api/watchlist/:title/:user/:watched").post(async function (req, res) {
   let movieTitle = req.params.title;
   let userEmail = req.params.user;
+  let watched = req.params.watched;
   console.log("line 80 ", userEmail);
   movieAPI.searchForMovie(movieTitle).then((results) => {
     let movie = {};

@@ -39,19 +39,19 @@ $(document).ready(() => {
     if (target.matches('button')) {
       var idInfo = target.getAttribute('id');
       console.log(idInfo);
+      if (idInfo === "notwatched") {
+        var watched = false;
+        $.post("/api/api/watchlist/" + title + "/" + userEmail + "/" + watched, function () {
+          console.log("watchedsuccess")
+        });
+      }
+      if (idInfo === "havewatched") {
+        var watched = true;
+        $.post("/api/api/watchlist/" + title + "/" + userEmail + "/" + watched, function () {
+          console.log("watchedsuccess")
+        });
     }
-    if (idInfo === "notwatched") {
-      var watched = false;
-      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
-        console.log("watchedsuccess")
-      });
-    }
-
-    if (idInfo === "havewatched") {
-      var watched = true;
-      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
-        console.log("watchedsuccess")
-      });
+    
     }
     console.log(title);
     console.log(userEmail);
@@ -61,7 +61,8 @@ $(document).ready(() => {
     let poster = $("<div>").addClass(
       "poster card-image waves-effect waves-block waves-light"
     );
-    let arrayLength = results.length - 1;
+    console.log(results);
+    let arrayLength = (results.length - 1);
     console.log(arrayLength);
     let image = $("<img>")
       .addClass("activator")
