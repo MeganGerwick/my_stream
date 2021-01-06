@@ -4,9 +4,13 @@ form.login {
 }
 
 body {
-height: 693px;
-font-family: 'Montserrat', sans-serif;
-background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 81%);
+  height: 693px;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 2, 22, 1) 0%,
+    rgba(31, 29, 30, 1) 81%
+  );
 }
 
 .parallax-container {
@@ -26,7 +30,11 @@ tr .striped {
   background-color: #151723;
 }
 .container {
-  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 98%);
+  background: linear-gradient(
+    180deg,
+    rgba(3, 2, 22, 1) 0%,
+    rgba(31, 29, 30, 1) 98%
+  );
   color: #fffffa;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(9, 8, 24, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -44,13 +52,13 @@ nav {
 }
 
 .brand-logo {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   letter-spacing: 5px;
   margin-left: 15px;
 }
 
 h2 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   letter-spacing: 5px;
   color: #fffffa;
 }
@@ -58,10 +66,10 @@ h2 {
 .btn {
   background-color: #25212b;
   color: #fffffa;
-  font-size: 12px;;
+  font-size: 12px;
 }
 
-.results li{
+.results li {
   color: #000000;
 }
 
@@ -73,7 +81,7 @@ h2 {
   color: #fffffa;
 }
 
-.input-field input[type=text]:focus {
+.input-field input[type="text"]:focus {
   border-bottom: 2px solid #fffffa;
   box-shadow: 0 1px 0 0 #fffffa;
 }
@@ -86,4 +94,3 @@ input {
   height: 350px;
   width: 250px;
 }
-
