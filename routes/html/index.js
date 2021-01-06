@@ -38,4 +38,12 @@ router.get('/search', isAuthenticated, (_req, res) => {
   res.sendFile(path.join(__dirname, '../../public/search.html'));
 })
 
+router.get('/watchlist', isAuthenticated, (_req, res) => {
+  // 1. what user called and their id
+  // 2. call database
+  // 3. pass into 2nd arg of res.render
+  res.render("index", {});
+})
+
+
 module.exports = router;
