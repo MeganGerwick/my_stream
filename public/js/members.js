@@ -1,5 +1,7 @@
 const $ = window.$;
 const searchRes = $(".results");
+let title;
+let userEmail;
 
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
@@ -15,23 +17,45 @@ $(document).ready(() => {
   $(".submitButton").click(function (event) {
     event.preventDefault();
     searchRes.empty();
-    let title = $("#search").val();
-    let userEmail = $(".member-name").text();
+    title = $("#search").val();
+    userEmail = $(".member-name").text();
     console.log(userEmail);
     createNewPost(title, userEmail);
   });
   function createNewPost(title, user) {
-    $.post("/api/api/watchlist/" + title + "/" + user, function () {
+    $.post("/api/api/search/" + title + "/" + user, function () {
       getAllPosts(user);
     });
   }
   function getAllPosts(user) {
-    $.get("/api/api/watchlist/" + user, function (results) {
+    $.get("/api/api/search/" + user, function (results) {
       createCard(results);
-      $.destroy;
     });
   }
 
+  $('.results').on('click', 'button', function (event) {
+    var target = event.target;
+    console.log(target);
+    if (target.matches('button')) {
+      var idInfo = target.getAttribute('id');
+      console.log(idInfo);
+    }
+    if (idInfo === "notwatched") {
+      var watched = false;
+      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
+        console.log("watchedsuccess")
+      });
+    }
+
+    if (idInfo === "havewatched") {
+      var watched = true;
+      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
+        console.log("watchedsuccess")
+      });
+    }
+    console.log(title);
+    console.log(userEmail);
+  })
   function createCard(results) {
     let card = $("<div>").addClass("card sticky-action");
     let poster = $("<div>").addClass(
@@ -58,14 +82,16 @@ $(document).ready(() => {
 
     let watchLinks = $("<div>").addClass("card-action");
     let linksPara = $("<p>");
-    let button1 = $("<a>")
+    let button1 = $("<button>")
       .attr("href", "havewatched")
-      .addClass("watchedbutton")
+      .attr("id", "havewatched")
+      .addClass("btn")
       .text("Seen It!")
       .appendTo(linksPara);
-    let button2 = $("<a>")
+    let button2 = $("<button>")
       .attr("href", "notwatched")
-      .addCLass("towatchbutton")
+      .attr("id", "notwatched")
+      .addClass("btn")
       .text("Add to List!")
       .appendTo(linksPara);
 
