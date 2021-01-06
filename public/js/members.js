@@ -23,14 +23,13 @@ $(document).ready(() => {
     createNewPost(title, userEmail);
   });
   function createNewPost(title, user) {
-    $.post("/api/api/watchlist/" + title + "/" + user, function () {
+    $.post("/api/api/search/" + title + "/" + user, function () {
       getAllPosts(user);
     });
   }
   function getAllPosts(user) {
-    $.get("/api/api/watchlist/" + user, function (results) {
+    $.get("/api/api/search/" + user, function (results) {
       createCard(results);
-      $.destroy;
     });
   }
 
@@ -40,6 +39,19 @@ $(document).ready(() => {
     if (target.matches('button')) {
       var idInfo = target.getAttribute('id');
       console.log(idInfo);
+    }
+    if (idInfo === "notwatched") {
+      var watched = false;
+      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
+        console.log("watchedsuccess")
+      });
+    }
+
+    if (idInfo === "havewatched") {
+      var watched = true;
+      $.post("/api/api/watchlist/" + title + "/" + user + "/" + watched, function () {
+        console.log("watchedsuccess")
+      });
     }
     console.log(title);
     console.log(userEmail);

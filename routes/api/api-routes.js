@@ -40,6 +40,24 @@ router.route("/api/watchlist/:user").get(function (req, res) {
       res.json(dbWatchlist);
     })
 });
+router.route("/api/search/:user").get(function (req, res) {
+  let userEmail = req.params.user;
+  db.Watchlist.findAll(
+    {
+      where: {
+        user: userEmail
+      }
+    }).then(function (dbWatchlist) {
+      // for (let i = 0; i < dbWatchlist.length; i++) {
+      //   // this is going to cycle through all the dataValues and
+      //   // give us the objects that they hold there depending on
+      //   // which user is input, we can then use that information
+      //   // to build the cards
+      //   console.log(dbWatchlist[i].dataValues);
+      // }
+      res.json(dbWatchlist);
+    })
+});
 
 // ***** THIS WHOLE POST ROUTE MIGHT BE WORTHLESS NOW
 // ***** WILL DELETE LATER IF NOT NEEDED
@@ -92,7 +110,7 @@ router.route("/api/watchlist/:user").get(function (req, res) {
 // });
 
 // Creates a new post to our watchlist table
-router.route("/api/watchlist/:title/:user").post(async function (req, res) {
+router.route("/api/watchlist/:title/:user/:watched").post(async function (req, res) {
   let movieTitle = req.params.title;
   let userEmail = req.params.user;
   console.log("line 80 ", userEmail);
@@ -112,6 +130,7 @@ router.route("/api/watchlist/:title/:user").post(async function (req, res) {
       rating: results.results[0].vote_average,
       user: userEmail,
       movieID: movieID,
+      watched: watched,
     };
     db.Watchlist.create(movie).then(function (dbWatchlist) {
       // We have access to the new todo as an argument inside of the callback function
