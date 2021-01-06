@@ -58,3 +58,17 @@ h2 {
 input {
   color: #fffffa;
 }
+
+li {
+  font-size: 14px;
+}
+
+.card {
+  height: 300px;
+width: 200px;
+}
+
+/* .poster {
+height: 400px;
+width: 200px;
+} */
