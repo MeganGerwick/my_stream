@@ -12,7 +12,7 @@ $(document).ready(() => {
   $(".carousel").carousel();
   $(".sidenav").sidenav();
 
-  $(".submitButton").click(function(event) {
+  $(".submitButton").click(function (event) {
     event.preventDefault();
     searchRes.empty();
     let title = $("#search").val();
@@ -21,23 +21,23 @@ $(document).ready(() => {
     createNewPost(title, userEmail);
   });
   function createNewPost(title, user) {
-    $.post("/api/api/watchlist/" + title + "/" + user, function() {
+    $.post("/api/api/watchlist/" + title + "/" + user, function () {
       getAllPosts(user);
     });
   }
   function getAllPosts(user) {
-    $.get("/api/api/watchlist/" + user, function(results) {
+    $.get("/api/api/watchlist/" + user, function (results) {
       createCard(results);
       $.destroy;
     });
   }
 
   function createCard(results) {
-    let card = $("<div>").addClass("card");
+    let card = $("<div>").addClass("card sticky-action");
     let poster = $("<div>").addClass(
       "poster card-image waves-effect waves-block waves-light"
     );
-    let arrayLength = results.length-1;
+    let arrayLength = results.length - 1;
     console.log(arrayLength);
     let image = $("<img>")
       .addClass("activator")
@@ -60,10 +60,12 @@ $(document).ready(() => {
     let linksPara = $("<p>");
     let button1 = $("<a>")
       .attr("href", "havewatched")
+      .addClass("watchedbutton")
       .text("Seen It!")
       .appendTo(linksPara);
     let button2 = $("<a>")
       .attr("href", "notwatched")
+      .addCLass("towatchbutton")
       .text("Add to List!")
       .appendTo(linksPara);
 
