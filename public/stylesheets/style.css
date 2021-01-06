@@ -13,7 +13,18 @@ background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 81%);
   height: 300px;
 }
 
+li {
+  color: #fffffa;
+  align-items: left;
+  font-size: 14px;
+}
+table {
+  color: #fffffa;
+}
 
+tr .striped {
+  background-color: #151723;
+}
 .container {
   background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(31,29,30,1) 98%);
   color: #fffffa;
@@ -45,7 +56,13 @@ h2 {
 }
 
 .btn {
-  background-color: #0d051b;
+  background-color: #25212b;
+  color: #fffffa;
+  font-size: 12px;;
+}
+
+.results li{
+  color: #000000;
 }
 
 .search-form {
@@ -65,12 +82,8 @@ input {
   color: #fffffa;
 }
 
-li {
-  font-size: 14px;
-}
-
 .card {
-  height: 300px;
-width: 200px;
+  height: 350px;
+  width: 250px;
 }
 
