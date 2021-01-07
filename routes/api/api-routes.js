@@ -14,31 +14,31 @@ var movieAPI = require("./helper/movie.js");
 // Routes
 // =============================================================
 // GET route for getting all of the movies
-router.route("/api/watchlist").get(function(req, res) {
+router.route("/api/watchlist").get(function (req, res) {
   // findAll returns all entries for a table when used with no options
-  db.Watchlist.findAll({}).then(function(dbWatchlist) {
+  db.Watchlist.findAll({}).then(function (dbWatchlist) {
     // We have access to the movies as an argument inside of the callback function
     res.json(dbWatchlist);
   });
 });
 
-router.route("/api/watchlist/:user").get(function(req, res) {
+router.route("/api/watchlist/:user").get(function (req, res) {
   let userEmail = req.params.user;
   db.Watchlist.findAll({
     where: {
       user: userEmail,
     },
-  }).then(function(dbWatchlist) {
+  }).then(function (dbWatchlist) {
     res.json(dbWatchlist);
   });
 });
-router.route("/api/search/:user").get(function(req, res) {
+router.route("/api/search/:user").get(function (req, res) {
   let userEmail = req.params.user;
   db.Searchtable.findAll({
     where: {
       user: userEmail,
     },
-  }).then(function(dbWatchlist) {
+  }).then(function (dbWatchlist) {
     res.json(dbWatchlist);
   });
 });
@@ -46,7 +46,7 @@ router.route("/api/search/:user").get(function(req, res) {
 // Creates a new post to our watchlist table
 router
   .route("/api/watchlist/:title/:user/:watched")
-  .post(async function(req, res) {
+  .post(function (req, res) {
     let movieTitle = req.params.title;
     let userEmail = req.params.user;
     let watched = req.params.watched;
@@ -69,7 +69,7 @@ router
         movieID: movieID,
         watched: watched,
       };
-      db.Watchlist.create(movie).then(function(dbWatchlist) {
+      db.Watchlist.create(movie).then(function (dbWatchlist) {
         // We have access to the new todo as an argument inside of the callback function
         res.json(dbWatchlist);
         console.log("line 105", userEmail);
@@ -118,7 +118,7 @@ router
   });
 
 // Creates a new post to our Search table
-router.route("/api/search/:title/:user").post(async function(req, res) {
+router.route("/api/search/:title/:user").post(function (req, res) {
   let movieTitle = req.params.title;
   let userEmail = req.params.user;
   console.log("line 80 ", userEmail);
@@ -139,7 +139,7 @@ router.route("/api/search/:title/:user").post(async function(req, res) {
       user: userEmail,
       movieID: movieID,
     };
-    db.Searchtable.create(movie).then(function(dbSearchtable) {
+    db.Searchtable.create(movie).then(function (dbSearchtable) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbSearchtable);
       console.log("line 105", userEmail);
@@ -186,33 +186,33 @@ router.route("/api/search/:title/:user").post(async function(req, res) {
     });
   });
 });
-router.route("/api/search/:title").delete(function(req, res) {
+router.route("/api/search/:title").delete(function (req, res) {
   // Use the sequelize destroy method to delete a record from our table with the
   // id in req.params.id. res.json the result back to the user
   db.Searchtable.destroy({
     where: {
       title: req.params.title,
     },
-  }).then(function(Searchtable) {
+  }).then(function (Searchtable) {
     res.json(Searchtable);
   });
 });
 // DELETE route for changing status. We can get the id of the todo to be deleted from
 // req.params.id
-router.route("/api/watchlist/:id").delete(function(req, res) {
+router.route("/api/watchlist/:id").delete(function (req, res) {
   // Use the sequelize destroy method to delete a record from our table with the
   // id in req.params.id. res.json the result back to the user
   db.Watchlist.destroy({
     where: {
       id: req.params.id,
     },
-  }).then(function(dbWatchlist) {
+  }).then(function (dbWatchlist) {
     res.json(dbWatchlist);
   });
 });
 
 // PUT route for updating todos. We can get the updated todo data from req.body
-router.route("/api/watchlist").put(function(req, res) {
+router.route("/api/watchlist").put(function (req, res) {
   // Use the sequelize update method to update a todo to be equal to the value of req.body
   // req.body will contain the id of the todo we need to update
   db.Watchlist.update(
@@ -233,7 +233,7 @@ router.route("/api/watchlist").put(function(req, res) {
         id: req.body.id,
       },
     }
-  ).then(function(dbWatchlist) {
+  ).then(function (dbWatchlist) {
     res.json(dbWatchlist);
   });
 });
