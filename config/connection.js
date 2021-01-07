@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "SESSION_SECRET",
+    password: "password",
     database: "my_stream",
 });
 
@@ -20,3 +20,4 @@ connection.connect(function (err) {
 
 // Export connection for our ORM to use.
 module.exports = connection;
+//
