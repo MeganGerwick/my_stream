@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Passport Authentication</title>
+    <title>Sign Up</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
@@ -9,22 +9,20 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header"></div>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">My Stream</a>
       </div>
-    </nav>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col m6 offset-m3">
           <h2>Sign Up Form</h2>
           <form class="signup">
             <div class="form-group">
@@ -57,14 +55,15 @@
               ></span>
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
-            <button type="submit" class="btn btn-default">Sign Up</button>
+            <button type="submit" class="btn">Sign Up</button>
           </form>
           <br />
           <p>Or log in <a href="/login">here</a></p>
         </div>
       </div>
     </div>
-
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/signup.js"></script>
   </body>
 </html>

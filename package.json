@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "stream",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -15,16 +15,21 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
+    "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "helmet": "^4.2.0",
+    "isomorphic-fetch": "^3.0.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.17",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "prettier-semi-cli": "^1.0.0",

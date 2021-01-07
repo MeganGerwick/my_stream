@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Trending Now</title>
+    <title>Search Streams</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
@@ -28,14 +28,14 @@
 
   <body>
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">My Watch List</a></li>
+      <li><a href="/watchlist">My Watch List</a></li>
       <li class="divider"></li>
       <li><a href="/login.html" class="logout">Log Out</a></li>
     </ul>
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="/members.html">Trending</a></li>
-      <li><a href="/search.html">Add to Lists</a></li>
+      <!-- <li><a href="./members.html">Trending</a></li> -->
+      <li><a href="./search.html">Add to Lists</a></li>
       <li><a href="/watchlist">My Watch List</a></li>
       <li><a href="/login.html" class="logout">Log Out</a></li>
     </ul>
@@ -47,7 +47,7 @@
           ><i class="material-icons">menu</i></a
         >
         <ul class="right hide-on-med-and-down">
-          <li><a href="/members.html">Trending</a></li>
+          <!-- <li><a href="/members.html">Trending</a></li> -->
           <li><a href="/search.html">Add to Lists</a></li>
           <li><a href="/watchlist">My Watch List</a></li>
           <!-- Dropdown Trigger -->
@@ -65,24 +65,26 @@
     <div class="container">
       <div class="row">
         <div class="col m8 offset-m2 s12">
-          <h2>What's Trending</h2>
-          <div class="carousel">
-            <a class="carousel-item" href="#one!"
-              ><img src="https://via.placeholder.com/150"
-            /></a>
-            <a class="carousel-item" href="#two!"
-              ><img src="https://via.placeholder.com/150"
-            /></a>
-            <a class="carousel-item" href="#three!"
-              ><img src="https://via.placeholder.com/150"
-            /></a>
-            <a class="carousel-item" href="#four!"
-              ><img src="https://via.placeholder.com/150"
-            /></a>
-            <a class="carousel-item" href="#five!"
-              ><img src="https://via.placeholder.com/150"
-            /></a>
+          <h2>Search Streams</h2>
+
+          <div class="input-field col m8 offset-m2 s12">
+            <input id="search" type="text" class="style-form" />
+            <label for="search" class="style-form">Search</label>
+
+            <button class="btn submitButton" type="submit" name="action">
+              Submit
+              <i class="material-icons right">send</i>
+            </button>
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col m8 offset-m2 s12 center-align">
+          <h2>
+            Results
+          </h2>
+          <div class="results"></div>
         </div>
       </div>
     </div>

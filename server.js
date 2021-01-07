@@ -12,9 +12,10 @@ const routes = require('./routes');
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const SYNC_OPTIONS = {
-  force: process.env.NODE_ENV === 'test'
+  force: process.env.NODE_ENV === 'production'
 };
-
+console.log(SYNC_OPTIONS);
+console.log(process.env.NODE_ENV);
 const db = require('./models');
 
 // Creating express app and configuring middleware needed for authentication

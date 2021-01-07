@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Passport Authentication</title>
+    <title>Login</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
@@ -11,20 +11,42 @@
     ></script>
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
     />
     <link href="stylesheets/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header"></div>
+    <ul class="sidenav" id="mobile-demo">
+      <!-- <li><a href="/members.html">Trending</a></li> -->
+      <li><a href="/signup.html">Sign Up</a></li>
+    </ul>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">My Stream</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <!-- <li><a href="/members.html">Trending</a></li> -->
+          <li><a href="/signup.html">Sign Up</a></li>
+        </ul>
       </div>
     </nav>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col m6 offset-m3">
           <h2>Login Form</h2>
           <form class="login">
             <div class="form-group">
@@ -45,14 +67,16 @@
                 placeholder="Password"
               />
             </div>
-            <button type="submit" class="btn btn-default">Login</button>
+            <button class="btn" type="submit" name="action">
+              Login
+            </button>
           </form>
           <br />
-          <p>Or sign up <a href="/">here</a></p>
+          <p>Or sign up <a href="/signup.html">here</a></p>
         </div>
       </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
   </body>
 </html>
